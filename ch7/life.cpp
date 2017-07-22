@@ -72,7 +72,7 @@ void loadConfig(char world[][SIZE_Y]) {
 
 int getNeighbors(const char world[][SIZE_Y], int posX, int posY) {
 	int neighbors(0);
-	
+
 	int row = posX - 1, column = posY - 1;
 	// Top-left
 	if(column >= 0 && row >= 0) if(world[row][column] == '*') neighbors++;

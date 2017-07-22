@@ -11,13 +11,13 @@ void input_data(int a[], int last_plant_number);
 // a[plant_number - 1] equals the total production for plant number plant_number.
 
 void get_total(int& sum);
-// Reads nonnegative integers from the keyboard and 
+// Reads nonnegative integers from the keyboard and
 // places their total in sum.
 
 void scale(int a[], int size);
 // Precondition: a[0] through a[size - 1] each has a nonnegative value.
 // Postcondition: a[i] has been changed to the number of 1000s (rounded to
-// an integer) that were originally in a[i], for all i such that 0 <= i <= size - 1. 
+// an integer) that were originally in a[i], for all i such that 0 <= i <= size - 1.
 
 void graph(const int asterisk_count[], int last_plant_number);
 // Precondition: asterisk_count[0] through asterisk_count[last_plast_number - 1]
@@ -54,7 +54,7 @@ void input_data(int a[], int last_plant_number) {
 void get_total(int& sum) {
 	cout << "Enter number of units produced by each department.\n"
 		 << "Append a negative number to the end of the list.\n";
-	
+
 	sum = 0;
 	int next;
 	cin >> next;

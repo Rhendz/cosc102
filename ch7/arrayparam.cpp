@@ -17,7 +17,7 @@ int main() {
 
 void fill_up(int a[], int size) {
 	cout << "Enter " << size << " numbers:\n";
-	for(int i = 0; i < size; i++) 
+	for(int i = 0; i < size; i++)
 		cin >> a[i];
 	size--;
 	cout << "The last array index used is " << size << endl;

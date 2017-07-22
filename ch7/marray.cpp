@@ -23,7 +23,7 @@ int main() {
 void fillArray(int grade[][NUMBER_QUIZZES]) {
 	for(int i = 0; i < NUMBER_STUDENTS; i++) {
 		cout << "Please enter 3 grades for Student " << i + 1 << ": ";
-		for(int j = 0; j < NUMBER_QUIZZES; j++) 
+		for(int j = 0; j < NUMBER_QUIZZES; j++)
 			cin >> grade[i][j];
 	}
 }
@@ -31,7 +31,7 @@ void fillArray(int grade[][NUMBER_QUIZZES]) {
 void compute_st_ave(const int grade[][NUMBER_QUIZZES], double st_ave[]) {
 	for(int st_num = 1; st_num <= NUMBER_STUDENTS; st_num++) {
 		double sum = 0;
-		for(int quiz_num = 1; quiz_num <= NUMBER_QUIZZES; quiz_num++) 
+		for(int quiz_num = 1; quiz_num <= NUMBER_QUIZZES; quiz_num++)
 			sum += grade[st_num - 1][quiz_num - 1];
 		st_ave[st_num - 1] = sum/NUMBER_QUIZZES;
 	}
@@ -40,7 +40,7 @@ void compute_st_ave(const int grade[][NUMBER_QUIZZES], double st_ave[]) {
 void compute_quiz_ave(const int grade[][NUMBER_QUIZZES], double quiz_ave[]) {
 	for(int quiz_num = 1; quiz_num <= NUMBER_QUIZZES; quiz_num++) {
 		double sum = 0;
-		for(int st_num = 1; st_num <= NUMBER_STUDENTS; st_num++) 
+		for(int st_num = 1; st_num <= NUMBER_STUDENTS; st_num++)
 			sum += grade[st_num - 1][quiz_num - 1];
 		quiz_ave[quiz_num - 1] = sum/NUMBER_STUDENTS;
 	}
@@ -56,7 +56,7 @@ void display(const int grade[][NUMBER_QUIZZES], const double st_ave[], const dou
 	for(int st_num = 1; st_num <= NUMBER_STUDENTS; st_num++) {
 		cout << setw(10) << st_num
 			 << setw(5) << st_ave[st_num - 1] << " ";
-		for(int quiz_num = 1; quiz_num <= NUMBER_QUIZZES; quiz_num++) 
+		for(int quiz_num = 1; quiz_num <= NUMBER_QUIZZES; quiz_num++)
 			cout << setw(5) << grade[st_num - 1][quiz_num - 1];
 		cout << endl;
 	}

@@ -39,7 +39,7 @@ void addHexes(const char hex1[], const int used1, const char hex2[], const int u
 	long sum = num1 + num2;
 
 	char hex[10];
-	int used = intToHex(sum, hex); 
+	int used = intToHex(sum, hex);
 
 	cout << "The sum of the two hexidecimal numbers is: ";
 	for(int i = used + 1; i < 10; i++) {
