@@ -25,8 +25,8 @@ int main() {
 	cout.setf(ios::fixed);
 	cout.setf(ios::showpoint);
 	cout.precision(2);
-	cout << "When your CD matures in "
-		 << account.term << " months,\n"
+	cout << "Your CD matures in "
+		 << account.term << " months and\n"
 		 << "it will have a balance of $"
 		 << account.balance << endl;
 	return 0;
