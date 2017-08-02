@@ -4,11 +4,11 @@
 #include <vector>
 using namespace std;
 
-// Encodes and decodes zipcodes and barcodes, respectively.
+// Encodes and decodes, zipcodes and barcodes, respectively.
 class Zipcode {
 public:
-	Zipcode(int zip_code);
-	Zipcode(string bar_code);
+	Zipcode(int zc);
+	Zipcode(string bc);
 	int getZipcode();
 	string getBarcode();
 
@@ -34,17 +34,18 @@ int main() {
 	return 0;
 }
 
-Zipcode::Zipcode(int zip_code) {
-	zip_code = zip_code;
+Zipcode::Zipcode(int zc) {
+	zip_code = zc;
 	bar_code = encode(zip_code);
 }
 
-Zipcode::Zipcode(string bar_code) {
-	if(!isBarcode(bar_code)) {
+Zipcode::Zipcode(string bc) {
+	if(!isBarcode(bc)) {
 		cout << "Invalid barcode!" << endl;
 		exit(1);
 	}
 	else {
+		bar_code = bc;
 		zip_code = decode(bar_code);
 	}
 }
@@ -85,17 +86,19 @@ string Zipcode::getZipNumEncoding(int zip_num) {
 	}
 	return group;
 }
-// Add in functionality for Barcode chunk
+
 int Zipcode::decode(string bar_code) {
 	string zcS;
-	// Take out first one and last one
+	// Take out first and last '1's - indicator binary digits.
 	string bc = bar_code.substr(1, bar_code.length()-2);
-	for(int i = 0; i < bc.length(); i++) {
-		int zip_num(0);
-		if(bc.at(i%5) == '1') zip_num+=valRef[i%5];
-		if(zip_num == 11) zip_num = 0;
-		zcS += to_string(zip_num);
+	for(int i = 0; i < bc.length(); i+=5) {
+		string chunk = bc.substr(i, 5);
+		int zcCount = 0;
+		for(int j = 0; j < chunk.length(); j++) {
+			if(chunk.at(j)=='1') zcCount+=valRef[j];
+		}
+		if(zcCount == 11) zcCount = 0;
+		zcS+=to_string(zcCount);
 	}
-	cout << zcS;
 	return stoi(zcS);
 }
