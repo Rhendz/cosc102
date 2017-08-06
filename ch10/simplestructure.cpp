@@ -1,4 +1,4 @@
-// Program to demonstrate teh CDAccount structure type.
+// Program to demonstrate the CDAccount structure type.
 #include <iostream>
 using namespace std;
 
